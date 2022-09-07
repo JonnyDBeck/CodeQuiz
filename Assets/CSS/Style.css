@@ -154,6 +154,23 @@ article p{
 }
 
 
+#Begin{
+    display: none;
+}
+
+#Score{
+    display: none;
+}
+
+#Question{
+    display: none;
+}
+
+#End{
+    display: none;
+}
+
+
 @media only screen and (max-width: 1200px) {
     .highMid{
       display: none;
