@@ -96,7 +96,24 @@ subBtn.addEventListener("click", function(event) {
 
 //Other Functions
 function timeStart(){
+    var mSecondsLeft = 6000;
 
+    var timerInterval = setInterval(function() {
+        mSecondsLeft--;
+        timer.textContent = (Math.round(mSecondsLeft * 10) / 1000).toFixed(2);
+    
+        if(mSecondsLeft === 0) {
+            clearInterval(timerInterval);
+            pageEnd(points)
+        }
+
+        if(page != 1){
+            clearInterval(timerInterval);
+            return;
+        }
+    
+      }, 10);
+    
 }
 
 function giveQuestion(){
@@ -106,7 +123,7 @@ function giveQuestion(){
     //found this online, works like a charm
     document.querySelectorAll('#ansBtn').forEach(item => {
         item.addEventListener('click', event => {
-            pageEnd();
+            pageEnd(points);
         })
     })
 }
