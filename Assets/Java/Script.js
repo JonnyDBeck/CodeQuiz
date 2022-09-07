@@ -1,7 +1,7 @@
 //buttons
 var highBtn = document.querySelector("#highBtn");
 var startBtn = document.querySelector("#startBtn");
-var ansBtn = document.querySelector("#ansBtn");
+//var ansBtn = document.querySelector("#ansBtn");
 var subBtn = document.querySelector("#subBtn");
 
 //pages
@@ -26,6 +26,7 @@ pageStart();
 function pageStart(){
     page = 0;
 
+    timeFull.style.color = "#2D3047";
     pageReset();
     beginPg.style.display = "block";
 }
@@ -33,6 +34,7 @@ function pageStart(){
 function pageQuiz(){
     page = 1;
 
+    timeFull.style.color = "#4DA1A9";
     pageReset();
     questionPg.style.display = "block";
 }
@@ -40,6 +42,7 @@ function pageQuiz(){
 function pageEnd(points){
     page = 2;
 
+    timeFull.style.color = "#2D3047";
     pageReset();
     endPg.style.display = "block";
 }
@@ -47,6 +50,7 @@ function pageEnd(points){
 function pageHigh(){
     page = 3;
 
+    timeFull.style.color = "#2D3047";
     highBtn.textContent = "Start Page"
     pageReset();
     scorePg.style.display = "block";
@@ -79,11 +83,8 @@ highBtn.addEventListener("click", function(event) {
 
 //TODO Quiz Functionality
 startBtn.addEventListener("click", function(event) {
-    pageQuiz();
-});
-
-ansBtn.addEventListener("click", function(event) {
-    pageEnd();
+    timeStart();
+    giveQuestion();
 });
 
 subBtn.addEventListener("click", function(event) {
@@ -96,4 +97,16 @@ subBtn.addEventListener("click", function(event) {
 //Other Functions
 function timeStart(){
 
+}
+
+function giveQuestion(){
+
+    pageQuiz();
+
+    //found this online, works like a charm
+    document.querySelectorAll('#ansBtn').forEach(item => {
+        item.addEventListener('click', event => {
+            pageEnd();
+        })
+    })
 }

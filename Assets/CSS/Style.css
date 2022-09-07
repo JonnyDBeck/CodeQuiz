@@ -23,7 +23,7 @@ header div{
 }
 
 .highLeft button{
-    width: 300px;
+    width: 180px;
     height: 80px;
     background-color: #4DA1A9;
     color: white;
@@ -171,7 +171,7 @@ article p{
 }
 
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1070px) {
     .highMid{
       display: none;
     }
