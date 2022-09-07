@@ -51,6 +51,109 @@ header div{
     font-size: 60px;
 }
 
+article{
+    border: 5px solid var(--clrBack);
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 20px;
+    padding: 2%;
+}
+
+article{
+    text-align: center;
+}
+
+article h1{
+    font-size: 50px;
+    color: var(--clrFront);
+    margin-bottom: 20px;
+}
+
+#Score ul{
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#Score li{
+    font-size: 30px;
+    margin: 10px;
+    text-align: left;
+    color: var(--clrBack);
+}
+
+article hr{
+    border-top: 3px solid var(--clrTrim);
+    
+}
+
+#Question button{
+    width: 100%;
+    background-color: #4DA1A9;
+    color: white;
+    font-size: 30px;
+    border-radius: 10px;
+    transition: 0.25s;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+#Question button:hover{
+    background-color: var(--clrTrim);
+    transition: 0.5s;
+}
+
+#Question button:active{
+    filter: brightness(50%);
+    transition: 0.1s;
+}
+
+article button{
+    width: 52%;
+    height: 100px;
+    background-color: #4DA1A9;
+    color: white;
+    font-size: 30px;
+    border-radius: 10px;
+    transition: 0.25s;
+    margin-top: 20px;
+}
+
+article button:hover{
+    background-color: var(--clrTrim);
+    transition: 0.5s;
+}
+
+article button:active{
+    filter: brightness(50%);
+    transition: 0.1s;
+}
+
+article h2 {
+    margin-top: 20px;
+    font-size: 35px;
+    color: var(--clrBack);
+}
+
+article h3 {
+    margin-top: 10px;
+    color: rgb(180, 0, 0);
+    display: none;
+}
+
+article p{
+    margin: 5px;
+    color: var(--clrBack);
+}
+
+#End input{
+    width: 300px;
+    height: 50px;
+    margin-top: 20px;
+}
+
+
 @media only screen and (max-width: 1200px) {
     .highMid{
       display: none;

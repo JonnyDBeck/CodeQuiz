@@ -6,7 +6,7 @@
 /Anyway the format for how my code will read the file is below:
 / # = question, * = wrong answer, @ = correct answer, / = comments
 
-#What does HTML an acronym for
+#What is HTML an acronym for
 *Heavy Turing Markup Language
 *Higher Text Machine Language
 @HyperText Markup Language
