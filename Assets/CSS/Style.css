@@ -1,0 +1,58 @@
+:root{
+    --clrBack: #2D3047;
+    --clrFront: #4DA1A9;
+    --clrTrim: #E0CA3C;
+}
+
+header{
+    display: flex;
+    background-color: var(--clrBack);
+    color: var(--clrFront);
+    height: 150px;
+    justify-content: space-between;
+}
+
+header div{
+    margin: 50px;
+    margin-top: 30px;
+}
+
+.highMid{
+    font-size: 45px;
+    margin-top: 50px;
+}
+
+.highLeft button{
+    width: 300px;
+    height: 80px;
+    background-color: #4DA1A9;
+    color: white;
+    font-size: 30px;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.highLeft button:hover{
+    background-color: var(--clrTrim);
+    transition: 0.5s;
+}
+
+.highLeft button:active{
+    filter: brightness(50%);
+    transition: 0.1s;
+}
+
+.highRight{
+    font-size: 30px;
+    text-align: center;
+}
+
+.highRight h1{
+    font-size: 60px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .highMid{
+      display: none;
+    }
+  }
