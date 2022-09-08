@@ -51,6 +51,10 @@ header div{
     font-size: 60px;
 }
 
+.penalty{
+    color: red;
+}
+
 article{
     border: 5px solid var(--clrBack);
     margin-top: 50px;

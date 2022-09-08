@@ -18,6 +18,9 @@ var timer = document.querySelector("#time");
 var question = document.querySelector("#hQuest");
 var questionAppend = document.querySelector("#btnAppend");
 
+//End Elements
+var endPoints = document.querySelector("#endPoints");
+
 //Other Vars
 var points = 0;
 //Current page is based on var
@@ -26,6 +29,7 @@ var page = 0;
 var totalQ = 0;
 var mSecondsLeft = 0;
 var usedQuestions = [];
+var currQuestion = 0;
 
 pageStart();
 
@@ -50,6 +54,8 @@ function pageQuiz(){
 
 function pageEnd(points){
     page = 2;
+
+    endPoints.textContent = points;
 
     timeFull.style.color = "#2D3047";
     pageReset();
@@ -93,6 +99,7 @@ highBtn.addEventListener("click", function(event) {
 });
 
 startBtn.addEventListener("click", function(event) {
+    points = 0;
     totalQ = 9;
     usedQuestions = [];
     timeStart();
@@ -115,9 +122,10 @@ function timeStart(){
         mSecondsLeft--;
         timer.textContent = (Math.round(mSecondsLeft * 10) / 1000).toFixed(2);
     
-        if(mSecondsLeft === 0) {
+        if(mSecondsLeft <= 0) {
             clearInterval(timerInterval);
             pageEnd(points)
+            timer.textContent = "00.00";
         }
 
         if(page != 1){
@@ -129,6 +137,19 @@ function timeStart(){
     
 }
 
+function timePenalty(){
+    //Removes 10 seconds from timer
+    mSecondsLeft -= 1000;
+
+    //Just for fun and for the UI looking good:
+    //Turns timer red, then fades out:
+    timer.setAttribute('class','penalty');
+    setTimeout(function(){
+        timer.removeAttribute('class','penalty');
+    }, 1000);
+    
+}
+
 function giveQuestion(){
     generateQuestionPage();
     pageQuiz();
@@ -136,11 +157,16 @@ function giveQuestion(){
     //found this online, works like a charm
     document.querySelectorAll('#ansBtn').forEach(item => {
         item.addEventListener('click', clickevent => {
-            
+            if (item.textContent == getObjectAnswer(currQuestion)){
+                points += 5;
+            }
+            else{
+                timePenalty();
+            }
 
             if (totalQ == 0){
-                points += Math.round(mSecondsLeft/2);
-                pageEnd();
+                points += Math.round(mSecondsLeft/100);
+                pageEnd(points);
             }
             else{
                 totalQ--;
@@ -161,7 +187,7 @@ function generateQuestionPage(){
     //Getting a number of a question
     //If question already asked, different number is generated
     do{
-        var currQuestion = Math.floor(Math.random() * getQuestionAmount());
+        currQuestion = Math.floor(Math.random() * getQuestionAmount());
     } while (usedQuestions.includes(currQuestion));
     
     //Giving the question
