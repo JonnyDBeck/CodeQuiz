@@ -10,6 +10,7 @@ header{
     color: var(--clrFront);
     height: 150px;
     justify-content: space-between;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.336);
 }
 
 header div{
@@ -23,6 +24,7 @@ header div{
 }
 
 .highLeft button{
+    border-color: var(--clrBack);
     width: 180px;
     height: 80px;
     background-color: #4DA1A9;
@@ -62,10 +64,9 @@ article{
     margin-right: 10%;
     border-radius: 20px;
     padding: 2%;
-}
-
-article{
     text-align: center;
+    background-color: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.336);
 }
 
 article h1{
@@ -89,10 +90,11 @@ article h1{
 
 article hr{
     border-top: 3px solid var(--clrTrim);
-    
+    margin-bottom: 20px;
 }
 
 #Question button{
+    border-color: var(--clrBack);
     width: 100%;
     background-color: #4DA1A9;
     color: white;
@@ -114,6 +116,7 @@ article hr{
 }
 
 article button{
+    border-color: var(--clrBack);
     width: 52%;
     height: 100px;
     background-color: #4DA1A9;
