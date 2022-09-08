@@ -31,10 +31,11 @@ var totalQ = 0;
 var mSecondsLeft = 0;
 var usedQuestions = [];
 var currQuestion = 0;
+var correctQuestions = 0;
+var timeLeft = 0;
 
 //starts user off on start page
 pageStart();
-
 
 //Page Functions
 //Sets which "Page" we are on
@@ -108,6 +109,8 @@ startBtn.addEventListener("click", function(event) {
     points = 0;
     totalQ = 9;
     usedQuestions = [];
+    correctQuestions = 0;
+    timeLeft = 0;
 
     //starts test by calling functions
     timeStart();
@@ -120,14 +123,41 @@ subBtn.addEventListener("click", function(event) {
     //checks if box is empty
     if (inName.value != "")
     {
-        checkAddHighscore(inName.value, points)
+        checkAddHighscore(inName.value, points, correctQuestions, timeLeft)
         pageHigh();
     }
 });
 
 //HighScore Functions
-function checkAddHighscore(key, value){
+function checkAddHighscore(name, points, correct, times){
+    //checks if the local variable already exists
+    //makes a new var and sends it to local
+    var highscores;
+    if (localStorage.getItem("highscoresLS") === null){
+        highscores = [["N/A", 0, 0, 0], ["N/A", 0, 0, 0], ["N/A", 0, 0, 0], ["N/A", 0, 0, 0], ["N/A", 0, 0, 0]]
+        localStorage.setItem("highscoresLS", JSON.stringify(highscores));
+    }
 
+    //gets the local variable
+    highscores = JSON.parse(localStorage.getItem("highscoresLS"));
+
+    //loops through the array to see if new score is higher than a previous score
+    for(i = 0; i < 5; i++){
+        if(highscores[i][1] <= points){
+            //moves all lower high scores down
+            for (j = 4; j > i ; j--){
+                highscores[j] = highscores[j-1]
+            }
+
+            //sets new highscore
+            highscores[i] = [name, points, correct, times];
+            break;
+        }
+    }
+
+    //pushes new highscore list to storage
+    localStorage.setItem("highscoresLS", JSON.stringify(highscores));
+    console.log(JSON.parse(localStorage.getItem("highscoresLS")));
 }
 
 
@@ -144,6 +174,7 @@ function timeStart(){
         
         //checks if time runs out, clears timer
         if(mSecondsLeft <= 0) {
+            timeLeft = 0;
             clearInterval(timerInterval);
             pageEnd(points)
             timer.textContent = "00.00";
@@ -183,6 +214,7 @@ function giveQuestion(){
             //checks whether the button text equals the answer and acts scordingly
             if (item.textContent == getObjectAnswer(currQuestion)){
                 points += 5;
+                correctQuestions++;
             }
             else{
                 timePenalty();
@@ -191,6 +223,7 @@ function giveQuestion(){
             //Checks number of questions left and ends the test if none
             if (totalQ == 0){
                 points += Math.round(mSecondsLeft/100);
+                timeLeft = Math.round(mSecondsLeft/100);
                 pageEnd(points);
             }
             else{
