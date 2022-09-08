@@ -1,7 +1,6 @@
 //buttons
 var highBtn = document.querySelector("#highBtn");
 var startBtn = document.querySelector("#startBtn");
-//var ansBtn = document.querySelector("#ansBtn");
 var subBtn = document.querySelector("#subBtn");
 
 //pages
@@ -22,6 +21,9 @@ var questionAppend = document.querySelector("#btnAppend");
 var endPoints = document.querySelector("#endPoints");
 var inName = document.querySelector("#inName");
 
+//Score Elements
+var highTable = document.querySelector("#highTable");
+
 //Other Vars
 var points = 0;
 //Current page is based on var
@@ -33,6 +35,7 @@ var usedQuestions = [];
 var currQuestion = 0;
 var correctQuestions = 0;
 var timeLeft = 0;
+var highscores;
 
 //starts user off on start page
 pageStart();
@@ -70,6 +73,7 @@ function pageHigh(){
     timeFull.style.color = "#2D3047";
     highBtn.textContent = "Start Page"
     pageReset();
+    setTable();
     scorePg.style.display = "block";
 }
 
@@ -130,15 +134,10 @@ subBtn.addEventListener("click", function(event) {
 
 //HighScore Functions
 function checkAddHighscore(name, points, correct, times){
-    //checks if the local variable already exists
-    //makes a new var and sends it to local
-    var highscores;
-    if (localStorage.getItem("highscoresLS") === null){
-        highscores = [["N/A", 0, 0, 0], ["N/A", 0, 0, 0], ["N/A", 0, 0, 0], ["N/A", 0, 0, 0], ["N/A", 0, 0, 0]]
-        localStorage.setItem("highscoresLS", JSON.stringify(highscores));
-    }
 
-    //gets the local variable
+
+    //gets the local variable after checked
+    storageCheck();
     highscores = JSON.parse(localStorage.getItem("highscoresLS"));
 
     //loops through the array to see if new score is higher than a previous score
@@ -158,6 +157,28 @@ function checkAddHighscore(name, points, correct, times){
     //pushes new highscore list to storage
     localStorage.setItem("highscoresLS", JSON.stringify(highscores));
     console.log(JSON.parse(localStorage.getItem("highscoresLS")));
+}
+
+function setTable(){
+
+    storageCheck();
+    highscores = JSON.parse(localStorage.getItem("highscoresLS"));
+
+    for(i = 0; i < 5; i++){
+        highTable.children.item(0).children.item(i+1).children.item(1).textContent = highscores[i][0];
+        highTable.children.item(0).children.item(i+1).children.item(2).textContent = highscores[i][1];
+        highTable.children.item(0).children.item(i+1).children.item(3).textContent = highscores[i][2];
+        highTable.children.item(0).children.item(i+1).children.item(4).textContent = highscores[i][3];
+    }
+}
+
+function storageCheck(){
+    //checks if the local variable already exists
+    //makes a new var and sends it to local
+    if (localStorage.getItem("highscoresLS") === null){
+        highscores = [["N/A", 0, 0, 0], ["N/A", 0, 0, 0], ["N/A", 0, 0, 0], ["N/A", 0, 0, 0], ["N/A", 0, 0, 0]]
+        localStorage.setItem("highscoresLS", JSON.stringify(highscores));
+    }
 }
 
 

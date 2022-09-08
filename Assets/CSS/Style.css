@@ -75,17 +75,26 @@ article h1{
     margin-bottom: 20px;
 }
 
-#Score ul{
-    margin-top: 20px;
+#Score table{
+    width: 60%;
     margin-left: 20%;
     margin-right: 20%;
 }
 
-#Score li{
+#Score th{
     font-size: 30px;
-    margin: 10px;
-    text-align: left;
+    color: var(--clrFront);
+}
+
+#Score td{
+    font-size: 22px;
     color: var(--clrBack);
+    width: 25%;
+    padding-top: 10px;
+}
+
+#Score tr:first-child{
+    border-right: 5px solid var(--clrBack);
 }
 
 article hr{
