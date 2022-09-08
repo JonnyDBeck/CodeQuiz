@@ -162,7 +162,6 @@ function generateQuestionPage(){
     //If question already asked, different number is generated
     do{
         var currQuestion = Math.floor(Math.random() * getQuestionAmount());
-        break;
     } while (usedQuestions.includes(currQuestion));
     
     //Giving the question
