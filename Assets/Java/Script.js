@@ -64,6 +64,7 @@ function pageEnd(points){
     endPoints.textContent = points;
     timeFull.style.color = "#2D3047";
     pageReset();
+    inName.value = "";
     endPg.style.display = "block";
 }
 

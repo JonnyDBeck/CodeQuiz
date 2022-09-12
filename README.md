@@ -1,99 +1,30 @@
-# 04 Web APIs: Code Quiz
+# Code Quiz/Programming Quiz
 
-## Your Task
+## Outline
 
-At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
+This website will prompt you with 10 programming questions in a 60 second timed quiz format. Answering questions correctly will gain you points and answering them wrong will loose you 10 seconds. When quiz is finished, you can save your highscore to localdata with a name. Your highscores can be viewed on a leaderboard that can be clicked to at any time.
 
-To help familiarize you with these tests and allow you to use the skills covered in this module, this Challenge invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. 
+![Cursor over "Start Quiz!" button](./Assets/Images/Quiz1.png)
+![Cursor over answer to question, timer in top right](./Assets/Images/Quiz2.png)
+![Highscore input screen with name in box](./Assets/Images/Quiz3.png)
+![Highscore screen which shows the top 5 highscores](./Assets/Images/Quiz4.png)
 
-This week’s coursework will equip you with all the skills you need to succeed in this assignment.
 
-## User Story
+## Design Liberties
 
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+I had a lot of fun with this specific challenge. Because of this, I added or changed some feature that were not in the original outline.
 
-## Acceptance Criteria
+One of the biggest you may notice is that the quiz has a total of 10 question instead of five. Furthermore, these questions are taken from a list of 15 questions randomly and can have more or less than 4 possible answers.
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
-```
+Another change is the way the score is calculated. In the mock-up, the Score was calculated based on time left on the clock, however in my project, it is based on: (questions correct * 5) + Time left in seconds.
 
-## Mock-Up
+Lastly, the High Score Does not just store the score, but also the amount of questions correct and the time left.
 
-The following animation demonstrates the application functionality:
 
-![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/Images/04-web-apis-homework-demo.gif)
+## Code Notes
 
-## Grading Requirements
+Firstly, there were some edge cases I had coded. One being that there is an alert when going to the high score page from the quiz or end page. This is bacause doing that will stop the quiz and highscore processes. Another edge case is that you cannot submit score with an emptybox to prevent blank names.
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+A big thing to note is that all the questions, answers, and options are stored in a seperate javascript file. This is because I did not want the questions to increase the size of my regular script file. The Questions are stored in an array with each question being an object with its strings as properties. The best thing about coding it this way is that I can add questions with relative ease!
 
-This Challenge is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+Lastly, the highscore stats are stored in an 2D array. This is to make it easier to get and store specific player stats.
