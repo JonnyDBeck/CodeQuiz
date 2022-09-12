@@ -14,7 +14,7 @@ This website will prompt you with 10 programming questions in a 60 second timed 
 
 I had a lot of fun with this specific challenge. Because of this, I added or changed some feature that were not in the original outline.
 
-One of the biggest you may notice is that the quiz has a total of 10 question instead of five. Furthermore, these questions are taken from a list of 15 questions randomly and can have more or less than 4 possible answers.
+One of the biggest you may notice is that the quiz has a total of 10 question instead of five. Furthermore, these questions are taken from a list of 20 questions randomly and can have more or less than 4 possible answers.
 
 Another change is the way the score is calculated. In the mock-up, the Score was calculated based on time left on the clock, however in my project, it is based on: (questions correct * 5) + Time left in seconds.
 

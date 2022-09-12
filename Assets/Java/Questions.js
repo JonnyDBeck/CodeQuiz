@@ -35,13 +35,13 @@ allQuestions[4] = {
 }
 
 allQuestions[5] = {
-    question: "How do you specify a CSS var?",
+    question: "How do you instantiate a CSS var?",
     ans: 'With "--"',
     wrong: ['With "var"', 'With "let"', 'There are no variables in CSS']
 }
 
 allQuestions[6] = {
-    question: "What is the most likely data type that I stored each collection of questions, answers, and wrong answers as?",
+    question: "What data type is each one of these questions likely stored as?",
     ans: "An Object",
     wrong: ["An Array/List", "A String"]
 }
@@ -65,15 +65,15 @@ allQuestions[9] = {
 }
 
 allQuestions[10] = {
-    question: "I have a variable that can be 10 different values. I want each value to run it's own code. What is the best statement to use?",
+    question: "I have a variable that can be 10 different values. I want each value to run it's own code. Which is the best statement to use?",
     ans: "A Select...Case Statement",
-    wrong: ["A For...Each Statement", "Muliple If...Then Statements", "Multiple If...Then...Else If... Statements"]
+    wrong: ["A For...Each Statement", "Muliple If...Then Statements", "Multiple If...Then...ElseIf... Statements"]
 }
 
 allQuestions[11] = {
     question: "I want to remove the LAST element from an array, what do I use?",
     ans: "Array.pop()",
-    wrong: ["Array.Shift()", "Array.Top()", "Array.End()"]
+    wrong: ["Array.shift()", "Array.top()", "Array.end()"]
 }
 
 allQuestions[12] = {
