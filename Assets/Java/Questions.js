@@ -93,3 +93,33 @@ allQuestions[14] = {
     ans: "True",
     wrong: ["False"]
 }
+
+allQuestions[15] = {
+    question: "ALL website use the Javascript language",
+    ans: "False",
+    wrong: ["True"]
+}
+
+allQuestions[16] = {
+    question: "Whitch CSS tag controls the color of the font",
+    ans: "color: ;",
+    wrong: ["font-color: ;", "text-color: ;", "forground-color: ;"]
+}
+
+allQuestions[17] = {
+    question: "Two objects with a margin of 2px and a padding of 3px are next to each other. How far apart are they?",
+    ans: "4px",
+    wrong: ["2px", "3px", "6px", "10px"]
+}
+
+allQuestions[18] = {
+    question: "Which is a for loop that loops 5 times?",
+    ans: "for(i = 1; i < 6; i++){}",
+    wrong: ["for(i = 1; i > 5; i++){}", "for(i = 0; i < 6; i++){}", "for(i = 0; i < 5; i--){}"]
+}
+
+allQuestions[19] = {
+    question: "Whitch is not a border attribute",
+    ans: "border-all: ;",
+    wrong: ["border-style: ;", "border-radius: ;", "border-top: ;"]
+}
